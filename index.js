@@ -69,10 +69,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning() {
+    return Math.round(Math.random() * 3)
 }
 
+console.log(`Task 2`, inning())
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -88,9 +89,44 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(callback, innings){
+  const lastInning = {}
+  let Home = 0
+  let Away = 0
+  let i = 0
+  
+  while (i < innings) {
+
+    if (home() === true && away() === true) {
+      i++
+    }
+
+    function home () {
+      if(callback() === 0 && callback() === 0) {
+        Home++
+      } else if (callback() === 1 && callback() === 1) {
+        return true
+      }
+    }
+
+    function away () {
+      if(callback() === 0 && callback() === 0) {
+        Away++
+      } else if (callback() === 1 && callback() === 1){
+        return true
+      }
+    }
+
+    
+  }
+  
+  lastInning.Home = Home
+  lastInning.Away = Away
+
+  return lastInning
 }
+
+console.log(`Task 3`, finalScore(inning, 9))
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -106,7 +142,7 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore(callback) {
   /*Your Code Here */
 
 }
