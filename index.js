@@ -70,7 +70,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning() {
-    return Math.round(Math.random() * 3)
+    return Math.floor(Math.random() * 3)
 }
 
 console.log(`Task 2`, inning())
@@ -101,21 +101,23 @@ function finalScore(callback, innings){
       i++
     }
 
+    function away () {
+      if(callback() === 0 && callback() === 0 && callback() === 0) {
+        Away++
+      } else if (callback() === 1 && callback() === 1){
+        return true
+      }
+    }
+    
     function home () {
-      if(callback() === 0 && callback() === 0) {
+      if(callback() === 0 && callback() === 0 && callback() === 0) {
         Home++
       } else if (callback() === 1 && callback() === 1) {
         return true
       }
     }
 
-    function away () {
-      if(callback() === 0 && callback() === 0) {
-        Away++
-      } else if (callback() === 1 && callback() === 1){
-        return true
-      }
-    }
+    
 
     
   }
@@ -196,9 +198,25 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(task4, task2, innings) {
+  const fullGame = []
+  let awayCount = 0
+  let homeCount = 0
+  for (let i = 1; i <= innings; i++) {
+    const eachGame = task4(task2())
+    fullGame[i] = `Inning ${i}: Away ${eachGame.Away} - Home ${eachGame.Home}`
+    awayCount = awayCount + eachGame.Away
+    homeCount = homeCount + eachGame.Home
+  }
+
+  if (awayCount === homeCount) {
+    fullGame.push(`This game will require extra innings: Away ${awayCount} - Home ${homeCount}`)
+  } else fullGame.push(`Final Score: Away ${awayCount} - Home ${homeCount}`)
+  
+  return fullGame
 }
+
+console.log(scoreboard(getInningScore, inning, 10))
 
 
 
