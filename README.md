@@ -60,7 +60,8 @@ You will be running your tests in one terminal and debugging in the other. As yo
 
 Edit the `ReadMe` file with your answers to the questions below.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). 
+Closure happens when an inner/nested function references a variable/function outside of its own scope. 
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,8 +83,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+The closure happens when the anonymous function within "personalDice" references the private variable or parameter "name". I can tell because witin the scope of the anonymous function, "name" doesn't exist. So it looks outside of its own scope to find it.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The parameter "name" is always going to stay the same unless you were to pass in another argument such as "Vincent". What is changing is the "newRoll" variable, outputting a number between 1 and 6.
 c. What is the lexical scope of `newRoll`? 
+The lexical scope of "newRoll" is the scope of the anonymous function that is returned by "personalDice".
 
 
 ### Task 3 - Stretch Goals
@@ -101,6 +105,18 @@ addSix(21); // returns 27
 ```
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+
+Functional programming is an environment or paradigm that a developer utilizes to create a program that which its code follows an immutable set of directions/functions that results in clear and easy to understand code.
+
+OOP is an environment or paradigm that a developer utilizes to create a program that which its code or set of directions can change at the developers will and be easily manipulated to receive and output a variety of information.
+
+The pros of functional programming allows a developer to have clear and concise code from the start and to the end. It easily enables de-bugging to a great degree, and can result in very optimized code.
+
+The pros of OOP allows a developer to manipulate the variables their programs recieves and shape how the program will determine what to do with said information. It can lead to very inclusive code for different applications.
+
+The cons of functional programming can be difficult to alter code. In order to have the information passed to a pure function changed or even the result, you would need to also change the entire program in succession.
+
+The cons of OOP programming can be code that's not as easily read and can be difficult to de-bug with variables/functions changing as the program runs. It also can result in much more code to do what the program is intended for.
 
 ## Resources
 
