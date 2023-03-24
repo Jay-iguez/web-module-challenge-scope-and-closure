@@ -143,9 +143,17 @@ For example: invoking getInningScore(inning) might return this object:
 
 
 function getInningScore(callback) {
-  /*Your Code Here */
+  const randomScore = {}
+  let home = Math.round(callback + Math.random())
+  let away = Math.round(callback + Math.random())
 
+  randomScore.Home = home
+  randomScore.Away = away
+
+  return randomScore
 }
+
+console.log(`Task 4`, getInningScore(inning()))
 
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
