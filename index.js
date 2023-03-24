@@ -30,12 +30,17 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    "Counter1" uses a closure in order to not only to count up an integer with the variable "count", but also store that information and build off of it in memory. Subsequently,
+    "counting up". Counter 2 however does not make use of a closure, so in return while it would add one to "count", the program has no way of storing that information and invoking
+    "counter2" would only result in the result "1" no matter how many times you do so.
   2. Which of the two uses a closure? How can you tell?
-  
+     As previously mentioned, "counter1" makes use of a closure by being defined by the nesting of the function "counter" in "counterMaker" and having "counter" reference "count" which
+    is outside of it's scope. This results in "count"'s count being stored in memory and allowing it to be subsequently updated.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
-*/
+     counter2 be better?
+     If you needed "count" to remain stagnant by it's inital defined value for any reason you would use 'counter2'. If you needed to update a variable for any reason, you would then use
+     'counter1' that way the value it is changing remains the same.
+*/  
 
 // counter1 code
 function counterMaker() {
